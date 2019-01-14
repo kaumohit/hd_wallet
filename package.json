@@ -1,0 +1,27 @@
+{
+  "name": "hd_wallet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaumohit/hd_wallet.git"
+  },
+  "author": "Mohit Kaushal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaumohit/hd_wallet/issues"
+  },
+  "homepage": "https://github.com/kaumohit/hd_wallet#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "bip39": "^2.5.0",
+    "bitcore-lib": "^0.16.0",
+    "elliptic": "^6.4.1",
+    "ethereumjs-util": "^6.0.0",
+    "hdkey": "^1.1.0"
+  }
+}
