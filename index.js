@@ -3,10 +3,20 @@ const HDKey = require("hdkey");
 const EthereumBIP44 = require("./bip44");
 const nemonic = bip39.generateMnemonic();
 const seed = bip39.mnemonicToSeedHex(nemonic);
-//console.log({ nemonic, seed });
+const transferEth = require("./transfer").transferEth;
+
 const hdkey = HDKey.fromMasterSeed(Buffer.from(seed, "hex"));
-//console.log({ hdkey });
 let HdWalletGenerator = new EthereumBIP44(hdkey);
 
-console.log(HdWalletGenerator.getAddress(0).toString("hex"));
-console.log(HdWalletGenerator.getPrivateKey(0).toString("hex"));
+let index = 0;
+let to = "0xDc7bE2963B1e8A4A3732F023cD51362B69aB547d";
+let amount = 0.0001;
+(async () => {
+  try {
+    let txnData = await transferEth(to, amount, HdWalletGenerator, index);
+    console.log(txnData);
+  } catch (er) {
+    console.log("Transaction errored due to some reason!!!");
+    console.log(er);
+  }
+})();
